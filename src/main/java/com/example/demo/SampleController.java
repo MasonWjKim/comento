@@ -1,9 +1,10 @@
 package com.example.demo;
 
+import com.squareup.okhttp.Response;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
 
 @RestController
 @RequiredArgsConstructor
@@ -19,4 +20,10 @@ public class SampleController {
     public String sample() {
         return sampleService.hello();
     }
+
+    @GetMapping("/api/v1/sample/getMarketCode")
+    public Response getMarketCode() throws IOException {
+        return sampleService.getMarketCode();
+    }
+
 }
